@@ -187,7 +187,7 @@ with gr.Blocks() as demo:
     )
 
 # demo.launch(debug=False, show_error=True, share=True)
-demo.launch(share=True, server_port=7861, server_name="0.0.0.0")
+demo.launch(server_port=7861, server_name="0.0.0.0", show_error=True)
 
 
 # python gradio_demo.py --icon_detect_model weights/icon_detect/best.pt --icon_caption_model florence2
