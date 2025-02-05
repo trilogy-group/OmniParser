@@ -195,8 +195,11 @@ def remove_overlap(boxes, iou_threshold, ocr_bbox=None):
 
     def is_inside(box1, box2):
         # return box1[0] >= box2[0] and box1[1] >= box2[1] and box1[2] <= box2[2] and box1[3] <= box2[3]
+        area1 = box_area(box1)
+        if area1 == 0:  # Skip boxes with zero area
+            return False
         intersection = intersection_area(box1, box2)
-        ratio1 = intersection / box_area(box1)
+        ratio1 = intersection / area1
         return ratio1 > 0.95
 
     boxes = boxes.tolist()
@@ -253,8 +256,11 @@ def remove_overlap_new(boxes, iou_threshold, ocr_bbox=None):
 
     def is_inside(box1, box2):
         # return box1[0] >= box2[0] and box1[1] >= box2[1] and box1[2] <= box2[2] and box1[3] <= box2[3]
+        area1 = box_area(box1)
+        if area1 == 0:  # Skip boxes with zero area
+            return False
         intersection = intersection_area(box1, box2)
-        ratio1 = intersection / box_area(box1)
+        ratio1 = intersection / area1
         return ratio1 > 0.80
 
     # boxes = boxes.tolist()

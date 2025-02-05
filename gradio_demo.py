@@ -44,6 +44,9 @@ def process(
     imgsz,
     icon_process_batch_size,
 ) -> tuple[Image.Image, str]:
+    if image_input is None:
+        raise gr.Error("Please upload an image before submitting.")
+        
     image_save_path = "imgs/saved_image_demo.png"
     image_input.save(image_save_path)
     image = Image.open(image_save_path)
