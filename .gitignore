@@ -4,5 +4,6 @@ weights/icon_detect/
 weights/icon_detect_v1_5/
 weights/icon_detect_v1_5_2/
 .gradio
-__pycache__/
+**/__pycache__/
 debug.ipynb
+.venv/
